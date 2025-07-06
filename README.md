@@ -17,7 +17,7 @@ Follow these steps to set up and run the project:
     ```
 
 This will compile and serve the convertor application.
-
+    
 ## Code Structure
 
 The main codebase is organized into modules and components for better maintainability. To begin working on the UI, navigate to the `shared-ui` module and open the `components` folder. You can either add your code to an existing component or create a new one as needed.
@@ -29,3 +29,9 @@ http://localhost:4200/product-home/product-home-page
 ```
 
 If you need to add new functionality, consider creating a new component within the `components` folder for better separation of concerns.
+
+
+## to create component inside share-ui
+    Go inside the share-ui structure and replace the component name here
+    
+    npx nx g @nrwl/angular:component words-counter/words-counter --style=scss --type=component

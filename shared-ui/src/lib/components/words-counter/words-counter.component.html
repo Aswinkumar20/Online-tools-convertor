@@ -1,0 +1,28 @@
+<div class="words-counter">
+  <h2>Words Counter</h2>
+
+  <div *ngIf="selectionInfo" class="selection-info">
+    Selected: "<span>{{ selectionInfo.text }}</span>" —
+    <em>{{ selectionInfo.type }}</em>
+  </div>
+
+  <div
+    class="draggable"
+    (mousedown)="startDrag($event)"
+  >
+    <textarea
+      #textArea
+      [(ngModel)]="text"
+      (input)="countWordsAndCharacters()"
+      (mouseup)="updateSelection()"
+      placeholder="Type or paste your text here..."
+      rows="6"
+    ></textarea>
+  </div>
+
+  <div class="counter-bar">
+    <p><strong>Words:</strong> {{ wordCount }}</p>
+    <p><strong>Characters:</strong> {{ charCount }}</p>
+    <button (click)="clear()">Clear</button>
+  </div>
+</div>

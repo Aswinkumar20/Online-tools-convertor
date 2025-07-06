@@ -1,5 +1,15 @@
-import { Route } from '@angular/router';
+import { Routes } from '@angular/router';
 
-export const appRoutes: Route[] = [
-    { path: 'product-home', loadChildren: () => import('@convertor-workspace/shared-ui').then(m => m.SharedUiModule) }
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    loadChildren: () =>
+      import('@convertor-workspace/shared-ui')
+        .then(m => m.SharedUiModule),
+  }
 ];
