@@ -1,9 +1,0 @@
-{
-  "name": "convertor-e2e",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "projectType": "application",
-  "sourceRoot": "apps/convertor-e2e/src",
-  "implicitDependencies": ["convertor"],
-  "// targets": "to see all targets run: nx show project convertor-e2e --web",
-  "targets": {}
-}
