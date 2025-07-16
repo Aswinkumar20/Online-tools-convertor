@@ -9,14 +9,15 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es2015",
-  "module": "esnext", 
+    "module": "esnext",
     "lib": ["es2020", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@tools-convertor/product-home": ["libs/product-home/src/index.ts"],
-      "@tools-convertor/shared-ui": ["libs/shared-ui/src/index.ts"]
+      "@tools-convertor/shared-ui": ["libs/shared-ui/src/index.ts"],
+      "@tools-convertor/text-utilities": ["libs/text-utilities/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

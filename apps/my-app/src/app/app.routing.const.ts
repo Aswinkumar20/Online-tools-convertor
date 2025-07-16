@@ -13,6 +13,11 @@ const routes: Routes = [
         import('@tools-convertor/shared-ui').then((m) => m.SharedUiModule),
   },
   {
+    path: 'text-utilities',
+    loadChildren: () =>
+        import('@tools-convertor/text-utilities').then((m) => m.TextUtilitiesModule),
+  },
+  {
     path: '',
     redirectTo: 'product-home',
     pathMatch: 'full',
