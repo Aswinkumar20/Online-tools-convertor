@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'lib-my-component',
+  selector: 'lib-navigation',
   standalone: false,
-  templateUrl: './my-component.html',
-  styleUrl: './my-component.scss',
+  templateUrl: './navigation.html',
+  styleUrl: './navigation.scss',
 })
-export class MyComponent {
+export class Navigation {
   title = 'My Component';
   categoriesList:any = [
     {
@@ -60,6 +60,10 @@ export class MyComponent {
   constructor(private router: Router) {}
 
   navigateTo(path: string) {
+    if(path === 'home') {
+      this.router.navigate(['/product-home']);
+      return;
+    }
     this.router.navigate(["../" + path]);
   }
 }

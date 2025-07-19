@@ -1,31 +1,32 @@
-<div class="container">
-  <h2>Word & Character Counter</h2>
-
-  <textarea
-    [formControl]="paragraphControl"
-    rows="10"
-    class="text-area"
-    placeholder="Type or paste your text here..."
-  ></textarea>
-
-  <div class="toggle">
-    <label>
-      <input type="checkbox" [(ngModel)]="showCharacterCount" />
-      Show character count details
-    </label>
+<div class="main-container" fxLayout="column">
+  <div>
+    <lib-navigation></lib-navigation>
   </div>
+  <div class="container">
+    <h2>Word & Character Counter</h2>
 
-  <div class="counts">
-    <p><strong>Word Count:</strong> {{ wordCount }}</p>
+    <textarea [formControl]="paragraphControl" rows="10" class="text-area"
+      placeholder="Type or paste your text here..."></textarea>
 
-    <div *ngIf="showCharacterCount">
-      <p><strong>Characters (with spaces):</strong> {{ charCount }}</p>
-      <p><strong>Characters (without spaces):</strong> {{ charCountNoSpaces }}</p>
+    <div class="toggle">
+      <label>
+        <input type="checkbox" [(ngModel)]="showCharacterCount" />
+        Show character count details
+      </label>
     </div>
-  </div>
 
-  <div class="actions">
-    <button (click)="copyText()">📋 Copy Text</button>
-    <button (click)="clearText()">❌ Clear</button>
+    <div class="counts">
+      <p><strong>Word Count:</strong> {{ wordCount }}</p>
+
+      <div *ngIf="showCharacterCount">
+        <p><strong>Characters (with spaces):</strong> {{ charCount }}</p>
+        <p><strong>Characters (without spaces):</strong> {{ charCountNoSpaces }}</p>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button (click)="copyText()">📋 Copy Text</button>
+      <button (click)="clearText()">❌ Clear</button>
+    </div>
   </div>
 </div>

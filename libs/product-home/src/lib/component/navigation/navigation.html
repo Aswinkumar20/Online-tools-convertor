@@ -1,0 +1,31 @@
+<div class="header-left" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5em">
+    <span (click)="navigateTo('home')">{{ title }}</span>
+    <div class="header-links" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="1em">
+        <div class="dropdown">
+            <span class="header-link" style="display: flex; align-items: center; cursor: pointer;">
+                Categories
+                <span style="font-size: 18px; margin-left: 4px;">&#9662;</span>
+            </span>
+            <div class="dropdown-content">
+                <div class="dropdown-section">
+                    <div class="dropdown-title">Below are the categories</div>
+                </div>
+                <div class="main-categories" fxLayout="column" fxLayoutGap="1em">
+                    <div class="category-item" fxLayout="row" *ngFor="let category of categoriesList">
+                        <div class="left-category">
+                            <span class="category-name">{{ category?.name }}</span>
+                            <span class="category-description">{{ category?.description }}</span>
+                        </div>
+                        <div class="right-category">
+                            <span class="category-link" *ngFor="let subCategoryItem of category?.subCategories"
+                                (click)="navigateTo(subCategoryItem?.path)">
+                                {{ subCategoryItem?.name }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="header-link">About</span>
+    </div>
+</div>

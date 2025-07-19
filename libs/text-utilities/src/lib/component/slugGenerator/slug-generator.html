@@ -1,0 +1,17 @@
+<div class="container">
+  <h2>Slug Generator</h2>
+
+  <label for="title">Enter Text:</label>
+  <textarea
+    id="title"
+    [(ngModel)]="inputText"
+    (input)="onInputChange()"
+    rows="4"
+    placeholder="Type your title or phrase here..."
+  ></textarea>
+
+  <div class="result" *ngIf="slug">
+    <label>Generated Slug:</label>
+    <textarea readonly rows="2">{{ slug }}</textarea>
+  </div>
+</div>

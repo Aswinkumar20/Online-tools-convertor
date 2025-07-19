@@ -108,3 +108,12 @@ npx nx g @nrwl/angular:library --name=text-utilities --style=scss --no-standalon
  NX  Generating @nrwl/angular:library
 
 √ Which directory do you want to create the library in? · libs/text-utilities -->
+
+
+<!-- open component folder and run this command
+    npx nx g @nx/angular:component textCaseConvertor/text-case-convertor --style=scss --standalone=false -->
+
+<!-- npx nx g @nx/angular:component textCaseConvertor/text-case-convertor --style=scss --standalone=false --fileNameSuffix=component -->
+
+
+<!-- npx nx g @nx/angular:component libs/text-utilities/src/lib/component/removeDuplicateLines/remove-duplicate-lines -->
