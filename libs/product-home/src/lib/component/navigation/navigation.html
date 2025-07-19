@@ -1,31 +1,53 @@
-<div class="header-left" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5em">
-    <span (click)="navigateTo('home')">{{ title }}</span>
-    <div class="header-links" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="1em">
-        <div class="dropdown">
-            <span class="header-link" style="display: flex; align-items: center; cursor: pointer;">
-                Categories
-                <span style="font-size: 18px; margin-left: 4px;">&#9662;</span>
-            </span>
-            <div class="dropdown-content">
-                <div class="dropdown-section">
-                    <div class="dropdown-title">Below are the categories</div>
-                </div>
-                <div class="main-categories" fxLayout="column" fxLayoutGap="1em">
-                    <div class="category-item" fxLayout="row" *ngFor="let category of categoriesList">
-                        <div class="left-category">
-                            <span class="category-name">{{ category?.name }}</span>
-                            <span class="category-description">{{ category?.description }}</span>
-                        </div>
-                        <div class="right-category">
-                            <span class="category-link" *ngFor="let subCategoryItem of category?.subCategories"
-                                (click)="navigateTo(subCategoryItem?.path)">
-                                {{ subCategoryItem?.name }}
-                            </span>
-                        </div>
-                    </div>
-                </div>
+<div class="main-header-container" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="0.5em">
+  <span (click)="navigateTo('home')">{{ title }}</span>
+
+  <div class="header-links" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="1em">
+    <div 
+      class="dropdown"
+      (mouseenter)="onDropdownEnter()"
+      (mouseleave)="isDropdownOpen = false"
+    >
+      <span class="header-link dropdown-toggle">
+        Categories
+        <span style="font-size: 18px; margin-left: 4px;">&#9662;</span>
+      </span>
+
+      <div class="dropdown-content" *ngIf="isDropdownOpen">
+        <div class="dropdown-title">Below are the categories</div>
+
+        <div class="dropdown-body">
+          <!-- LEFT: Main Categories -->
+          <div class="main-categories">
+            <div 
+              class="category-item"
+              *ngFor="let category of categoriesList"
+              (mouseenter)="hoveredCategory = category"
+            >
+              <div class="category-name">{{ category.name }}</div>
+              <div class="category-description">{{ category.description }}</div>
             </div>
+          </div>
+
+          <!-- RIGHT: Subcategories or Placeholder -->
+          <div class="sub-categories">
+            <ng-container *ngIf="hoveredCategory; else emptyPlaceholder">
+              <div 
+                class="category-link"
+                *ngFor="let sub of hoveredCategory.subCategories"
+                (click)="navigateTo(sub.path)"
+              >
+                {{ sub?.name }}
+              </div>
+            </ng-container>
+
+            <ng-template #emptyPlaceholder>
+              <div class="empty-placeholder">Hover a category to see tools</div>
+            </ng-template>
+          </div>
         </div>
-        <span class="header-link">About</span>
+      </div>
     </div>
+
+    <span class="header-link">About</span>
+  </div>
 </div>

@@ -9,61 +9,81 @@ import { Router } from '@angular/router';
 })
 export class Navigation {
   title = 'My Component';
-  categoriesList:any = [
+  categoriesList: any = [
     {
-      "name":'Text & utilities',
-      "description":'Tools for text manipulation and utilities',
-      "icon":'text_fields',
-      "path":'text-utilities',
-      "subCategories" : [
+      name: 'Text & Utilities',
+      description: 'Useful tools for editing and analyzing text',
+      icon: 'text_fields',
+      path: 'text-utilities',
+      subCategories: [
         {
-          "name": "words-and-character-counter",
-          "path":'text-utilities/words-and-character-counter'
+          name: 'Word & Character Counter',
+          path: 'text-utilities/words-and-character-counter',
+          description: 'Count words, characters, and spaces in your text instantly.'
         },
         {
-          "name": "text-case-convertor",
-          "path":'text-utilities/text-case-convertor'
+          name: 'Text Case Changer',
+          path: 'text-utilities/text-case-convertor',
+          description: 'Convert text to UPPERCASE, lowercase, or Capitalized formats.'
         },
         {
-          "name": "text-to-ascii",
-          "path":'text-utilities/text-to-ascii'
+          name: 'Convert Text to ASCII',
+          path: 'text-utilities/text-to-ascii',
+          description: 'Convert characters to their ASCII values and back.'
         },
         {
-          "name": "remove-duplicate-lines",
-          "path":'text-utilities/remove-duplicate-lines'
+          name: 'Remove Duplicate Lines',
+          path: 'text-utilities/remove-duplicate-lines',
+          description: 'Eliminate repeated lines from your text quickly.'
         },
         {
-          "name": "text-reversal-and-palindrome-checker",
-          "path":'text-utilities/text-reversal-and-palindrome-checker'
+          name: 'Reverse Text & Check Palindrome',
+          path: 'text-utilities/text-reversal-and-palindrome-checker',
+          description: 'Reverse text or check if a string is a palindrome.'
         },
         {
-          "name": "base64-encode-and-decode",
-          "path":'text-utilities/base64-encode-and-decode'
+          name: 'Base64 Encoder & Decoder',
+          path: 'text-utilities/base64-encode-and-decode',
+          description: 'Encode or decode text using Base64 format.'
         },
         {
-          "name": "slug-generator",
-          "path":'text-utilities/slug-generator'
+          name: 'Create URL Slugs',
+          path: 'text-utilities/slug-generator',
+          description: 'Generate clean, SEO-friendly slugs from your text.'
         },
         {
-          "name": "text-difference",
-          "path":'text-utilities/text-difference'
+          name: 'Compare Text Differences',
+          path: 'text-utilities/text-difference',
+          description: 'Find and highlight differences between two text blocks.'
         },
         {
-          "name": "code-merge",
-          "path":'text-utilities/code-merge'
+          name: 'Merge Code Snippets',
+          path: 'text-utilities/code-merge',
+          description: 'Merge and review differences in code or text snippets.'
         }
       ]
     }
-    
   ];
+  ;
 
-  constructor(private router: Router) {}
+
+  isDropdownOpen = false;
+  hoveredCategory: any = null;
+
+  constructor(private router: Router) { }
 
   navigateTo(path: string) {
-    if(path === 'home') {
+    if (path === 'home') {
       this.router.navigate(['/product-home']);
       return;
     }
     this.router.navigate(["../" + path]);
   }
+
+  onDropdownEnter(): void {
+    this.isDropdownOpen = true;
+    this.hoveredCategory = null; // Reset to show empty right panel
+  }
+
+
 }
