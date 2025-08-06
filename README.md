@@ -101,6 +101,8 @@ And join the Nx community:
 - [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
 
 
+<!-- npx nx serve my-app -->
+
 
 <!-- 
 npx nx g @nrwl/angular:library --name=text-utilities --style=scss --no-standalone

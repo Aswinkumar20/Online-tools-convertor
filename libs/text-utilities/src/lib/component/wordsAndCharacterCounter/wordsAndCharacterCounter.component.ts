@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { debounceTime } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 
-
 @Component({
   selector: 'lib-words-and-character-counter',
   standalone: false,
@@ -10,8 +9,7 @@ import { FormControl } from '@angular/forms';
   styleUrl: './wordsAndCharacterCounter.component.scss',
 })
 export class WordsAndCharacterCounterComponent implements OnInit {
-  
- paragraphControl = new FormControl('');
+  paragraphControl = new FormControl('');
   showCharacterCount = true;
 
   wordCount = 0;

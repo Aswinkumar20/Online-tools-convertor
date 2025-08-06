@@ -2,31 +2,85 @@
   <div>
     <lib-navigation></lib-navigation>
   </div>
-  <div class="container">
-    <h2>Word & Character Counter</h2>
 
-    <textarea [formControl]="paragraphControl" rows="10" class="text-area"
-      placeholder="Type or paste your text here..."></textarea>
 
-    <div class="toggle">
-      <label>
-        <input type="checkbox" [(ngModel)]="showCharacterCount" />
-        Show character count details
-      </label>
-    </div>
 
-    <div class="counts">
-      <p><strong>Word Count:</strong> {{ wordCount }}</p>
+  <!-- Extra Info Sections -->
+  <div class="tool-info">
+    <section class="tool-description">
+      <h1>Free Online Word and Character Counter Tool</h1>
+      <p>
+        This tool helps you count words and characters in real time. It's ideal for students, writers, marketers, and
+        social media users who need to stay within word or character limits.
+      </p>
+    </section>
 
-      <div *ngIf="showCharacterCount">
-        <p><strong>Characters (with spaces):</strong> {{ charCount }}</p>
-        <p><strong>Characters (without spaces):</strong> {{ charCountNoSpaces }}</p>
+    <div class="container">
+
+      <textarea [formControl]="paragraphControl" rows="10" class="text-area"
+        placeholder="Type or paste your text here..."></textarea>
+
+      <div class="toggle">
+        <label>
+          <input type="checkbox" [(ngModel)]="showCharacterCount" />
+          Show character count details
+        </label>
+      </div>
+
+      <div class="counts">
+        <p><strong>Word Count:</strong> {{ wordCount }}</p>
+
+        <div *ngIf="showCharacterCount">
+          <p><strong>Characters (with spaces):</strong> {{ charCount }}</p>
+          <p><strong>Characters (without spaces):</strong> {{ charCountNoSpaces }}</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button (click)="copyText()">📋 Copy Text</button>
+        <button (click)="clearText()">❌ Clear</button>
       </div>
     </div>
 
-    <div class="actions">
-      <button (click)="copyText()">📋 Copy Text</button>
-      <button (click)="clearText()">❌ Clear</button>
-    </div>
+    <section class="how-to-use">
+      <h2>🔧 How to Use</h2>
+      <ol>
+        <li>Type or paste your content in the text area above.</li>
+        <li>Check the real-time word and character count below the box.</li>
+        <li>Toggle the checkbox to view detailed character stats.</li>
+        <li>Use the copy or clear buttons as needed.</li>
+      </ol>
+    </section>
+
+    <section class="why-use">
+      <h2>✅ Why Use This Tool?</h2>
+      <ul>
+        <li><strong>Fast:</strong> Instant results while you type.</li>
+        <li><strong>Accurate:</strong> Counts characters with and without spaces.</li>
+        <li><strong>SEO & Ad Ready:</strong> Stay within limits for Google, Twitter/X, etc.</li>
+        <li><strong>Private:</strong> Your data stays in your browser only.</li>
+      </ul>
+    </section>
+
+    <section class="faq-section">
+      <h2>❓ Frequently Asked Questions</h2>
+
+      <h3>Will my text be saved online?</h3>
+      <p>No, your text is only stored locally in your browser for convenience. It is not uploaded anywhere.</p>
+
+      <h3>How are words counted?</h3>
+      <p>Words are counted by separating the text based on spaces. Multiple spaces or new lines are ignored.</p>
+
+      <h3>Does it work on mobile?</h3>
+      <p>Yes! The tool is fully responsive and works on any device.</p>
+
+      <h3>Can I clear my data?</h3>
+      <p>Yes, use the ❌ Clear button to reset the text and counts immediately.</p>
+    </section>
+
+    <section class="disclaimer">
+      <p><em>Disclaimer: This tool is for estimation only. Please verify final counts before submitting to platforms
+          with strict character limits.</em></p>
+    </section>
   </div>
 </div>
