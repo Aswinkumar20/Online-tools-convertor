@@ -64,8 +64,6 @@ export class Navigation {
       ]
     }
   ];
-  ;
-
 
   isDropdownOpen = false;
   hoveredCategory: any = null;

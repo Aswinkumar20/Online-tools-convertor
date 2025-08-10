@@ -1,8 +1,54 @@
 <div class="main-container" fxLayout="column">
-    <div class="header-content" fxLayout="row" fxLayoutAlign="space-between center">
-        <lib-navigation style="width: 100%;"></lib-navigation>
-    </div>
+  <!-- Header -->
+  <div class="header-content" fxLayout="row" fxLayoutAlign="space-between center">
+    <lib-navigation style="width: 100%;"></lib-navigation>
+  </div>
 
-    <div class="body-content"></div>
-    <div class="footer-content"></div>
+  <!-- Hero Section -->
+  <div class="hero-section" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="0.5em">
+    <h1 class="hero-title">Your All-in-One Digital Toolkit</h1>
+    <p class="hero-subtitle">
+      Streamline your daily tasks with powerful, easy-to-use tools for text, files, development, and more.
+      Efficiency at your fingertips, designed for speed and simplicity.
+    </p>
+
+    <div class="search-bar" fxLayout="row" fxLayoutAlign="center center">
+      <input type="text"
+             placeholder="Search for a specific tool..."
+             [(ngModel)]="searchQuery"
+             (input)="filterCategories()" />
+      <button (click)="filterCategories()">Find</button>
+    </div>
+  </div>
+
+  <!-- Categories -->
+  <div class="body-content" fxLayout="column" fxLayoutAlign="start center" fxLayoutGap="1em">
+    <div class="body-content-details" fxLayout="row wrap" fxLayoutAlign="center start">
+      <div class="category-card"
+           *ngFor="let category of filteredCategories"
+           fxLayout="column"
+           fxLayoutAlign="start start">
+
+        <div class="category-title" fxLayout="row" fxLayoutGap="0.5em">
+          <span>{{ category.name }}</span>
+        </div>  
+
+        <div class="category-description">{{ category.description }}</div>
+
+        <div class="tools-list-child-container">
+          <div class="tool-item"
+               *ngFor="let tool of category.subCategories; let last = last"
+               [ngClass]="{ 'border-bottom': !last }"
+               (click)="navigateTo(tool.path)">
+            {{ tool.name }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer-content">
+    <p>Made with ❤️ by Visily</p>
+  </div>
 </div>
